@@ -7,7 +7,7 @@ pipeline {
 
    stages {
 
-     stage('checkout Terraform files to deploy infra') {
+     stage('Checkout Terraform Files to Deploy IaC') {
       steps {
         checkout scm
        }
@@ -30,7 +30,7 @@ pipeline {
             }
          }
 
-         stage('Code approval request') {
+         stage('Code Approval Request') {
      
            steps {
              script {
@@ -40,7 +40,7 @@ pipeline {
           }
 
 
-    stage('init Terraform') {
+    stage('Terraform Init') {
        agent {
                docker { image 'dhouari/devsecops'
                          args '--entrypoint=' }
@@ -54,7 +54,7 @@ pipeline {
          }
      }  
        
-   stage('Terraform plan approval request') {
+   stage('Terraform Plan Approval Request') {
       steps {
         script {
           def userInput = input(id: 'confirm', message: 'Do you Approve the Terraform Plan?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Confirm to Approve Terraform Plan', name: 'approve'] ])
@@ -62,7 +62,7 @@ pipeline {
       }
     }
         
-   stage('Deploy the Terraform infra') {
+   stage('Deploy with Terraform Apply') {
        agent {
                docker { image 'dhouari/devsecops'
                          args '--entrypoint=' }
