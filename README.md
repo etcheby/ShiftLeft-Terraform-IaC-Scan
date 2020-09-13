@@ -1,11 +1,14 @@
-# TGWHA
-Terraform Script for Check Point Cloudguard TGW HA deployment - Recommended for demos or POCs.
-Assumes you're willing to deploy Mgmt in AWS. Tweak script accordingly should you have on-prem Mgmt. 
+# Terraform Source Code Scan + IaC Assessment using Cloudguard Shiftleft Plugin in Jenkins Pipeline. 
 
-Phase#1 - Completed 08/05/2020
-Builds an AWS TGW environment with 2 spoke VPCs, 1 Check Point Mgmt VPC and Instance, 1 Cloudguard IaaS HA security VPC, relevant VPCs&subnets RT, 
-TGW attachments,TGW Route Tables
-Architecture Diagram of deployment can be found --> https://github.com/etcheby/TGWHA/blob/master/TGW-HA-Solution.png
+Using Jenkins pipeline as a script we're inserting Check Point ShiftLeft CLI plugin - 
+ShiftLeft CLI plugin adds security to your CI/CD pipelines with the following blades:
+  a- #iac-assessment to scan infrastructure as a code (IaC) templates
+  b- #image-scan to scan container images for vulnerabilities
+  c- #sourceguard to scan source code 
 
-Phase#2 - To be completed by 09/01/2020 or earlier.
-Will add Check Security Mgmt rules to test E/W and Egress inspection, based on Check Point TF provider resources
+PS: To leverage the sourceguard blade you would need SourceGuard API token on top of the Cloudguard API token. 
+    Shiftleft CLI is currently in EA (preview). To create SourceGuard tenant go to --> https://portal.checkpoint.com 
+
+
+# Jenkins Pipeline Workflow 
+
