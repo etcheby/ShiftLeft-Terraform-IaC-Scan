@@ -6,6 +6,10 @@ ShiftLeft CLI plugin adds security to your CI/CD pipelines with the following bl
   b- #image-scan to scan container images for vulnerabilities;
   c- #sourceguard to scan source code.
 
+Shiftleft CLI --> https://secure.dome9.com/v2/shiftleft/cli
+
+https://github.com/etcheby/ShiftLeft-Terraform-IaC-Scan/blob/master/shiftleft-cli.png
+
 PS: To leverage the sourceguard blade you would need SourceGuard API token on top of the Cloudguard API token. 
     Shiftleft CLI is currently in EA (preview). To create SourceGuard tenant go to --> https://portal.checkpoint.com 
 
