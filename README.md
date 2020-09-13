@@ -13,4 +13,4 @@ PS: To leverage the sourceguard blade you would need SourceGuard API token on to
 # Jenkins Pipeline Workflow 
 This Jenkins pipeline is triggered by "Commit" to my GitHub repository hosting the Terraform template. In the build stages, we will respectively scan source code (look for harcoded credentials, malicious IPs, vulnerabilities) and assessment the templates against CloudGuard Compliance Ruleset " Terraform AWS CIS Foundations", initialize and plan and deploy the AWS infrasctructure from TF template using the Check Point DevSecOps container /dhouari/devsecops which itself already contains Terraform CLI.   
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/etcheby/ShiftLeft-Terraform-IaC-Scan/blob/master/shiftleft-jenkins.png?raw=true)
