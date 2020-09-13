@@ -8,7 +8,7 @@ ShiftLeft CLI plugin adds security to your CI/CD pipelines with the following bl
 
 Shiftleft CLI --> https://secure.dome9.com/v2/shiftleft/cli
 
-https://github.com/etcheby/ShiftLeft-Terraform-IaC-Scan/blob/master/shiftleft-cli.png
+![alt text](https://github.com/etcheby/ShiftLeft-Terraform-IaC-Scan/blob/master/shiftleft-cli.png?raw=true)
 
 PS: To leverage the sourceguard blade you would need SourceGuard API token on top of the Cloudguard API token. 
     Shiftleft CLI is currently in EA (preview). To create SourceGuard tenant go to --> https://portal.checkpoint.com 
@@ -18,3 +18,5 @@ PS: To leverage the sourceguard blade you would need SourceGuard API token on to
 This Jenkins pipeline is triggered by "Commit" to my GitHub repository hosting the Terraform template. In the build stages, we will respectively scan source code (look for harcoded credentials, malicious IPs, vulnerabilities) and assessment the templates against CloudGuard Compliance Ruleset " Terraform AWS CIS Foundations", initialize and plan and deploy the AWS infrasctructure from TF template using the Check Point DevSecOps container /dhouari/devsecops which itself already contains Terraform CLI.   
 
 ![alt text](https://github.com/etcheby/ShiftLeft-Terraform-IaC-Scan/blob/master/shiftleft-jenkins.png?raw=true)
+
+![alt text](https://github.com/etcheby/ShiftLeft-Terraform-IaC-Scan/blob/master/CP-DevSecOps.png?raw=true)
