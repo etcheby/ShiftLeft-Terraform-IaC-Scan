@@ -3,70 +3,70 @@
 #########################################
 
 resource "aws_vpc" "geocluster_vpc"{
-  cidr_block       = "${var.geocluster_vpc_cidr}"
+  cidr_block       = var.geocluster_vpc_cidr
   instance_tenancy = "default"
       
-  tags {
+  tags = {
     Name = "Geocluster"
   }
 }
 
 resource "aws_subnet" "public_subnet1" {
-  availability_zone = "${var.primary_az}"
-  vpc_id            = "${aws_vpc.geocluster_vpc.id}"
-  cidr_block        = "${var.public_subnet1_cidr}"
+  availability_zone = var.primary_az
+  vpc_id            = aws_vpc.geocluster_vpc.id
+  cidr_block        = var.public_subnet1_cidr
   
-  tags {
+  tags = {
     Name = "Public 1"
   }
 }
 
 resource "aws_subnet" "public_subnet2" {
-  availability_zone = "${var.secondary_az}"
-  vpc_id            = "${aws_vpc.geocluster_vpc.id}"
-  cidr_block        = "${var.public_subnet2_cidr}"
+  availability_zone = var.secondary_az
+  vpc_id            = aws_vpc.geocluster_vpc.id
+  cidr_block        = var.public_subnet2_cidr
   
-  tags {
+  tags = {
     Name = "Public 2"
   }
 }
 
 resource "aws_subnet" "private1" {
-  availability_zone = "${var.primary_az}"
-  vpc_id            = "${aws_vpc.geocluster_vpc.id}"
-  cidr_block        = "${var.private_subnet1_cidr}"
+  availability_zone = var.primary_az
+  vpc_id            = aws_vpc.geocluster_vpc.id
+  cidr_block        = var.private_subnet1_cidr
   
-  tags {
+  tags = {
     Name = "Private 1"
   }
 }
 
 resource "aws_subnet" "private2" {
-  availability_zone = "${var.secondary_az}"
-  vpc_id            = "${aws_vpc.geocluster_vpc.id}"
-  cidr_block        = "${var.private_subnet2_cidr}"
+  availability_zone = var.secondary_az
+  vpc_id            = aws_vpc.geocluster_vpc.id
+  cidr_block        = var.private_subnet2_cidr
   
-  tags {
+  tags = {
     Name = "Private 2"
   }
 }
 
 resource "aws_subnet" "tgw_subnet1" {
-  availability_zone = "${var.primary_az}"
-  vpc_id            = "${aws_vpc.geocluster_vpc.id}"
-  cidr_block        = "${var.tgw_subnet1_cidr}"
+  availability_zone = var.primary_az
+  vpc_id            = aws_vpc.geocluster_vpc.id
+  cidr_block        = var.tgw_subnet1_cidr
   
-  tags {
+  tags = {
     Name = "TGW Subnet 1"
   }
 }
 
 resource "aws_subnet" "tgw_subnet2" {
-  availability_zone = "${var.secondary_az}"
-  vpc_id            = "${aws_vpc.geocluster_vpc.id}"
-  cidr_block        = "${var.tgw_subnet2_cidr}"
+  availability_zone = var.secondary_az
+  vpc_id            = aws_vpc.geocluster_vpc.id
+  cidr_block        = var.tgw_subnet2_cidr
   
-  tags {
+  tags = {
     Name = "TGW Subnet 2"
   }
 }
@@ -76,20 +76,20 @@ resource "aws_subnet" "tgw_subnet2" {
 ###################################
 
 resource "aws_vpc" "spoke1_vpc"{
-  cidr_block       = "${var.spoke1_vpc_cidr}"
+  cidr_block       = var.spoke1_vpc_cidr
   instance_tenancy = "default"
       
-  tags {
+  tags = {
     Name = "Spoke1"
   }
 }
 
 resource "aws_subnet" "spoke1_subnet" {
-  availability_zone = "${var.primary_az}"
-  vpc_id            = "${aws_vpc.spoke1_vpc.id}"
-  cidr_block        = "${var.spoke1_subnet_cidr}"
+  availability_zone = var.primary_az
+  vpc_id            = aws_vpc.spoke1_vpc.id
+  cidr_block        = var.spoke1_subnet_cidr
   
-  tags {
+  tags = {
     Name = "Spoke1"
   }
 }
@@ -100,9 +100,9 @@ resource "aws_subnet" "spoke1_subnet" {
 
 resource "aws_security_group" "spoke1_security_group"{
   description = "Spoke1 Jump Server SG"
-  vpc_id      = "${aws_vpc.spoke1_vpc.id}"
+  vpc_id      = aws_vpc.spoke1_vpc.id
 
-  # SSH access from My Home_IP
+  # SSH access from My Allowed_Source
   ingress {
     from_port   = 22
     to_port     = 22
@@ -126,7 +126,7 @@ resource "aws_security_group" "spoke1_security_group"{
     cidr_blocks = ["0.0.0.0/0"]
   } 
 
-        tags {
+        tags = {
     Name        = "Spoke1 Jump Server SG"
   } 
 
@@ -137,20 +137,20 @@ resource "aws_security_group" "spoke1_security_group"{
 ####################################
 
 resource "aws_vpc" "spoke2_vpc"{
-  cidr_block       = "${var.spoke2_vpc_cidr}"
+  cidr_block       = var.spoke2_vpc_cidr
   instance_tenancy = "default"
       
-  tags {
+  tags = {
     Name = "Spoke2"
   }
 }
 
 resource "aws_subnet" "spoke2_subnet" {
-  availability_zone = "${var.primary_az}"
-  vpc_id            = "${aws_vpc.spoke2_vpc.id}"
-  cidr_block        = "${var.spoke2_subnet_cidr}"
+  availability_zone = var.primary_az
+  vpc_id            = aws_vpc.spoke2_vpc.id
+  cidr_block        = var.spoke2_subnet_cidr
   
-  tags {
+  tags = {
     Name = "Spoke2"
   }
 }
@@ -161,7 +161,7 @@ resource "aws_subnet" "spoke2_subnet" {
 
 resource "aws_security_group" "spoke2_security_group"{
   description = "Spoke2 SG"
-  vpc_id      = "${aws_vpc.spoke2_vpc.id}"
+  vpc_id      = aws_vpc.spoke2_vpc.id
 
   # SSH access from anywhere
   ingress {
@@ -195,7 +195,7 @@ resource "aws_security_group" "spoke2_security_group"{
     cidr_blocks = ["0.0.0.0/0"]
   } 
 
-        tags {
+        tags = {
     Name        = "Spoke2 SG"
   } 
 
@@ -206,20 +206,20 @@ resource "aws_security_group" "spoke2_security_group"{
 ####################################
 
 resource "aws_vpc" "mgmt_vpc"{
-  cidr_block       = "${var.mgmt_vpc_cidr}"
+  cidr_block       = var.mgmt_vpc_cidr
   instance_tenancy = "default"
       
-  tags {
+  tags = {
     Name = "Mgmt"
   }
 }
 
 resource "aws_subnet" "mgmt_subnet" {
-  availability_zone = "${var.primary_az}"
-  vpc_id            = "${aws_vpc.mgmt_vpc.id}"
-  cidr_block        = "${var.mgmt_subnet_cidr}"
+  availability_zone = var.primary_az
+  vpc_id            = aws_vpc.mgmt_vpc.id
+  cidr_block        = var.mgmt_subnet_cidr
   
-  tags {
+  tags = {
     Name = "Mgmt Subnet"
   }
 }
@@ -229,7 +229,7 @@ resource "aws_subnet" "mgmt_subnet" {
 ####################################
 
 resource "aws_internet_gateway" "mgmt_igw" {
-  vpc_id = "${aws_vpc.mgmt_vpc.id}"
+  vpc_id = aws_vpc.mgmt_vpc.id
 
   tags = {
     Name = "Mgmt-IGW"
@@ -237,7 +237,7 @@ resource "aws_internet_gateway" "mgmt_igw" {
 }
 
 resource "aws_internet_gateway" "geocluster_igw" {
-  vpc_id = "${aws_vpc.geocluster_vpc.id}"
+  vpc_id = aws_vpc.geocluster_vpc.id
 
   tags = {
     Name = "Geocluster-IGW"
@@ -245,12 +245,10 @@ resource "aws_internet_gateway" "geocluster_igw" {
 }
 
 resource "aws_internet_gateway" "spoke1_igw" {
-  vpc_id = "${aws_vpc.spoke1_vpc.id}"
+  vpc_id = aws_vpc.spoke1_vpc.id
 
   tags = {
     Name = "Spoke1-IGW"
   }
 
 }
-
-
