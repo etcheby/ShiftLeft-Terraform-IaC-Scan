@@ -3,7 +3,7 @@
 resource "aws_cloudformation_stack" "mgmt_CF_stack" {
   name = "TGW-Mgmt"
 
-  parameters {
+  parameters = {
     VPC                     = "${aws_vpc.mgmt_vpc.id}"
     Subnet                  = "${aws_subnet.mgmt_subnet.id}"
     Name                    = "TGW-Mgmt"
@@ -27,7 +27,7 @@ resource "aws_cloudformation_stack" "mgmt_CF_stack" {
 resource "aws_cloudformation_stack" "checkpoint_geocluster_stack" {
   name = "Geocluster"
 
-  parameters {
+  parameters = {
     VPC                     = "${aws_vpc.geocluster_vpc.id}"
     PublicSubnetA           = "${aws_subnet.public_subnet1.id}"
     PublicSubnetB           = "${aws_subnet.public_subnet2.id}"
