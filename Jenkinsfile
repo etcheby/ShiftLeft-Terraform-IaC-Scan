@@ -14,7 +14,7 @@ pipeline {
 
      }
     
-      stage('Terraform Code SourceGuard SAST Scan') { 
+      stage('Shifleft SAST Terraform Source Code Scan') { 
           
           steps { 
              script {      
