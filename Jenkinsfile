@@ -42,7 +42,7 @@ pipeline {
 
     stage('Terraform Init') {
        agent {
-               docker { image 'dhouari/devsecops'
+               docker { image 'checkpoint/shifleft'
                          args '--entrypoint=' }
                        }
         steps {
