@@ -3,6 +3,8 @@ pipeline {
      environment {
            SG_CLIENT_ID = credentials("SG_CLIENT_ID")
            SG_SECRET_KEY = credentials("SG_SECRET_KEY")
+	   CHKP_CLOUDGUARD_ID = credentials("CHKP_CLOUDGUARD_ID")
+	   CHKP_CLOUDGUARD_SECRET = credentials("CHKP_CLOUDGUARD_SECRET")
            }
 
    stages {
@@ -20,7 +22,7 @@ pipeline {
              script {      
                  try {
                      
-                     sh './sourceguard-cli --src .'
+                     sh 'shifleft sourceguard -D --src .'
            
                    } catch (Exception e) {
     
