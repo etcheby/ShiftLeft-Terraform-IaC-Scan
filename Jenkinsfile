@@ -22,7 +22,7 @@ pipeline {
              script {      
                  try {
                      
-                     sh 'shifleft sourceguard -D --src .'
+                     sh './shifleft sourceguard -D --src .'
            
                    } catch (Exception e) {
     
