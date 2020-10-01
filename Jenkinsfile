@@ -11,25 +11,22 @@ pipeline {
 
      stage('Checkout Terraform Files to Deploy IaC') {
       steps {
-	      dir ('myrepo') {
+	      dir ('TGWHA') {
 	      
 		      checkout scm
 	      }             
        }
 
      }
-   
-	   
+   	   
      stage('Shifleft SAST Terraform IaC-Assessment') {
 	   
      steps {
 	     echo 'Running Shiftleft Iac Assessment'
-	       sh ' sleep 120'
-	       sh 'shiftleft iac-assessment -D -p myrepo/ -r 208483 -s critical'
+	       sh 'shiftleft iac-assessment -D -p TGWHA/ -r 208483 -s critical'
 		   }
 	   }
-	   
-	   
+	   	   
          stage('Code Approval Request') {
      
            steps {
@@ -44,7 +41,7 @@ pipeline {
      steps {
 	     echo 'Running Shiftleft Source Code Scan'
 	       sh ' sleep 120'
-	       sh 'shiftleft sourceguard -D --src myrepo/'
+	       sh 'shiftleft sourceguard -D --src TGWHA/'
 		   }
 	   }
 
