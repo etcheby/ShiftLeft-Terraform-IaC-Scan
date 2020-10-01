@@ -16,27 +16,12 @@ pipeline {
 
      }
    
-#  stage('Shifleft SAST Terraform Source Code Scan') { 
-#      
-#      steps { 
-#         script {      
-#             try {
-#                 
-#                 sh 'shifleft sourceguard -D --src .'
-#       
-#               } catch (Exception e) {
-#
-#               echo "Request for Code Review Approval"  
-#              }
-#           }
-#        }
-#     }
 	   
-	   stage('Shifleft SAST Terraform IaC-Assessment') {
+     stage('Shifleft SAST Terraform IaC-Assessment') {
 	   
-		   steps {
-		   	   echo 'Running Shiftleft Iac Assessment'
-			   sh 'shiftleft iac-assessment -D -r 190928 -s critical'
+     steps {
+	     echo 'Running Shiftleft Iac Assessment'
+	       sh 'shiftleft iac-assessment -D -r 190928 -s critical'
 		   }
 	   }
 	   
