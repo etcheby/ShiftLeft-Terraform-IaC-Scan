@@ -27,7 +27,7 @@ pipeline {
 		   }
 	   }
 	   	   
-         stage('Code Approval Request') {
+         stage('IaC Assessment Approval Request') {
      
            steps {
              script {
@@ -45,7 +45,7 @@ pipeline {
 		   }
 	   }
 
-         stage('Code Approval Request') {
+         stage('Source Code Scan Approval Request') {
      
            steps {
              script {
