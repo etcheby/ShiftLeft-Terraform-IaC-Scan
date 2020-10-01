@@ -11,7 +11,7 @@ pipeline {
 
      stage('Checkout Terraform Files to Deploy IaC') {
       steps {
-	      dir ('Shifleft-Terraform-IaC-Scan') {
+	      dir ('myrepo') {
 	      
 		      checkout scm
 	      }     
@@ -25,7 +25,8 @@ pipeline {
 	   
      steps {
 	     echo 'Running Shiftleft Iac Assessment'
-	       sh 'shiftleft iac-assessment -D -p ShiftLeft-Terraform-IaC-Scan/ -r 208483 -s critical .'
+	       sh ' sleep 120'
+	       sh 'shiftleft iac-assessment -D -p myrepo/ -r 208483 -s critical'
 		   }
 	   }
 	   
