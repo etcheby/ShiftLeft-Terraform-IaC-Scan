@@ -23,7 +23,7 @@ pipeline {
 	   
      steps {
 	     echo 'Running Shiftleft Iac Assessment'
-	       sh 'shiftleft iac-assessment -D -p TGWHA/ -r 208483 -s critical |jq'
+	       sh 'shiftleft iac-assessment -D -p TGWHA/ -r 208483 -s critical | jq'
 		   }
 	   }
 	   	   
