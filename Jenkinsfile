@@ -40,7 +40,6 @@ pipeline {
 	   
      steps {
 	     echo 'Running Shiftleft Source Code Scan'
-	       sh ' sleep 120'
 	       sh 'shiftleft sourceguard -D --src TGWHA/'
 		   }
 	   }
