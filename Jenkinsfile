@@ -15,22 +15,22 @@ pipeline {
        }
 
      }
-    
-    #  stage('Shifleft SAST Terraform Source Code Scan') { 
-    #      
-    #      steps { 
-    #         script {      
-    #             try {
-    #                 
-    #                 sh 'shifleft sourceguard -D --src .'
-    #       
-    #               } catch (Exception e) {
-    #
-    #               echo "Request for Code Review Approval"  
-    #              }
-    #           }
-    #        }
-    #     }
+   
+#  stage('Shifleft SAST Terraform Source Code Scan') { 
+#      
+#      steps { 
+#         script {      
+#             try {
+#                 
+#                 sh 'shifleft sourceguard -D --src .'
+#       
+#               } catch (Exception e) {
+#
+#               echo "Request for Code Review Approval"  
+#              }
+#           }
+#        }
+#     }
 	   
 	   stage('Shifleft SAST Terraform IaC-Assessment') {
 	   
