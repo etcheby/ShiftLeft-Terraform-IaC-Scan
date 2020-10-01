@@ -22,7 +22,7 @@ pipeline {
              script {      
                  try {
                      
-                     sh './shifleft sourceguard -D --src .'
+                     sh 'shifleft sourceguard -D --src .'
            
                    } catch (Exception e) {
     
@@ -31,7 +31,16 @@ pipeline {
                }
             }
          }
-
+	   
+	   stage('Shifleft SAST Terraform IaC-Assessment') {
+	   
+		   steps {
+		   	   echo 'Running Shiftleft Iac Assessment'
+			   sh 'shiftleft iac-assessment -D -r 190928 -s critical'
+		   }
+	   }
+	   
+	   
          stage('Code Approval Request') {
      
            steps {
