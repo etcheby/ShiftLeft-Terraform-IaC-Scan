@@ -14,8 +14,7 @@ pipeline {
 	      dir ('myrepo') {
 	      
 		      checkout scm
-	      }     
-        
+	      }             
        }
 
      }
@@ -40,10 +39,28 @@ pipeline {
             }
           }
 
+     stage('Shifleft SourceGuard') {
+	   
+     steps {
+	     echo 'Running Shiftleft Source Code Scan'
+	       sh ' sleep 120'
+	       sh 'shiftleft sourceguard -D --src myrepo/'
+		   }
+	   }
 
-    stage('Terraform Init') {
+         stage('Code Approval Request') {
+     
+           steps {
+             script {
+               def userInput = input(id: 'confirm', message: 'Do you Approve to use this code?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Approve Code to Proceed', name: 'approve'] ])
+              }
+            }
+          }
+	   
+	   
+    stage('Terraform Plan') {
        agent {
-               docker { image 'checkpoint/shifleft'
+               docker { image 'dhouari/shifleft'
                          args '--entrypoint=' }
                        }
         steps {
