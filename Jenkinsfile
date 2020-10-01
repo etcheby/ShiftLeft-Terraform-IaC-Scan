@@ -21,7 +21,7 @@ pipeline {
 	   
      steps {
 	     echo 'Running Shiftleft Iac Assessment'
-	       sh 'shiftleft iac-assessment -D -r 208483 -s critical .'
+	       sh 'shiftleft iac-assessment -D -p ShiftLeft-Terraform-IaC-Scan/ -r 208483 -s critical .'
 		   }
 	   }
 	   
