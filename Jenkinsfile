@@ -11,7 +11,11 @@ pipeline {
 
      stage('Checkout Terraform Files to Deploy IaC') {
       steps {
-        checkout scm
+	      dir 'Shifleft-Terraform-IaC-Scan' {
+	      
+		      checkout scm
+	      }     
+        
        }
 
      }
