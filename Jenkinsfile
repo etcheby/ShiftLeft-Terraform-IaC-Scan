@@ -36,11 +36,11 @@ pipeline {
             }
           }
 
-     stage('Shifleft SourceGuard') {
+     stage('Shifleft Code Scan - SAST') {
 	   
      steps {
 	     echo 'Running Shiftleft Source Code Scan'
-	       sh 'shiftleft sourceguard -D --src TGWHA/'
+	       sh 'shiftleft code-scan -D --src TGWHA/'
 		   }
 	   }
 
