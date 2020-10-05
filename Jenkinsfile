@@ -19,7 +19,7 @@ pipeline {
 
      }
    	   
-     stage('Shifleft SAST Terraform IaC-Assessment') {
+     stage('Shifleft Terraform IaC-Assessment') {
 	   
      steps {
 	     echo 'Running Shiftleft Iac Assessment'
