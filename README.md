@@ -19,6 +19,4 @@ This Jenkins pipeline is triggered by "Commit" to my GitHub repository hosting t
 
 ![alt text](https://github.com/etcheby/ShiftLeft-Terraform-IaC-Scan/blob/master/shiftleft-jenkins.png?raw=true)
 
-![alt text](https://github.com/etcheby/ShiftLeft-Terraform-IaC-Scan/blob/master/CP-DevSecOps.png?raw=true)
-
-Adding this line for automatic CI Build trigger!!!
+![alt text](https://github.com/etcheby/ShiftLeft-Terraform-IaC-Scan/blob/master/Shiftleft-Menu.jpg?raw=true)
